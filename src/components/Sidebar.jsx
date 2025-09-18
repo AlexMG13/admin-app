@@ -1,25 +1,15 @@
-export default function Sidebar({ view, setView }) {
+import { Link } from "react-router-dom";
+
+export default function Sidebar() {
   return (
-    <aside className="w-64 bg-gray-800 text-white p-4 flex flex-col">
-      <h1 className="text-2xl font-bold mb-6">Admin App</h1>
-      <button
-        className={`text-left p-2 rounded mb-2 hover:bg-gray-700 ${view === "añadir" ? "bg-gray-700" : ""}`}
-        onClick={() => setView("añadir")}
-      >
-        ➕ Añadir
-      </button>
-      <button
-        className={`text-left p-2 rounded mb-2 hover:bg-gray-700 ${view === "productos" ? "bg-gray-700" : ""}`}
-        onClick={() => setView("productos")}
-      >
-        📦 Productos
-      </button>
-      <button
-        className={`text-left p-2 rounded mb-2 hover:bg-gray-700 ${view === "carrito" ? "bg-gray-700" : ""}`}
-        onClick={() => setView("carrito")}
-      >
-        🛒 Carrito
-      </button>
+    <aside className="w-64 bg-[#acad62] text-white p-4">
+      <h2 className="text-xl font-bold mb-6">Menú</h2>
+      <nav className="flex flex-col space-y-4">
+        <Link to="/carrito" className="hover:text-gray-200">Carrito</Link>
+        <Link to="/precios" className="hover:text-gray-200">Precios</Link>
+        <Link to="/anadir" className="hover:text-gray-200">Añadir</Link>
+        <Link to="/upload" className="hover:text-gray-200">Cargar CSV</Link>
+      </nav>
     </aside>
   );
 }
